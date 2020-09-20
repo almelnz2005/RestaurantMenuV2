@@ -109,7 +109,7 @@ void itemTotals(){
 
 //Function: Saves to file
 void saveToFile(){
-    std::ofstream outfile ("\\School\\C++\\Restaurant Menu V2\\RestaurantOrder.txt");
+    std::ofstream outfile ("/mnt/d/School/C++/RestaurantMenuV2/RestaurantOrder.txt");
     outfile << "Item        Quantity" << std::endl;
     outfile << "--------------------" << std::endl;
 
