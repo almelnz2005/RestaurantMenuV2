@@ -1,8 +1,10 @@
+//Libraries used
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
 #include <fstream>
 
+//Global variables
 namespace myGlobals {
     int burgerCount;
     int friesCount;
@@ -19,6 +21,7 @@ namespace myGlobals {
 
 using namespace std;
 
+//Function: prints menu
 void menu(void){
     std::system("clear");
     printf("-----------------------------------------------INSTRUCTIONS--------------------------------------------\n");
@@ -34,6 +37,7 @@ void menu(void){
     printf("Completed Order(e 0)\n");
 }
 
+//Function: Counts menu items
 void itemCount(char item, int quantity){
     std::system("clear");
     char temp;
@@ -78,6 +82,7 @@ void itemCount(char item, int quantity){
     }  
 }
 
+//Function: prints iteam totals and gives total
 void itemTotals(){
     printf("-----------Totals-------------\n");
     if(myGlobals::burgerCount > 0){
@@ -102,6 +107,7 @@ void itemTotals(){
     printf("------------------------------\n");
 }
 
+//Function: Saves to file
 void saveToFile(){
     std::ofstream outfile ("\\School\\C++\\Restaurant Menu V2\\RestaurantOrder.txt");
     outfile << "Item        Quantity" << std::endl;
@@ -138,12 +144,15 @@ int main(void)
     int quantity;
 
     while(item != 'e'){
+        //prints menu and item count and total
         menu();
         itemTotals();
 
+        //requests item and quantity
         printf("Enter the Item and quantity: ");
         std::cin >> item >> quantity;
 
+        //checks if order needs to be complete and saves to file
         if(item != 'e'){
             itemCount(item, quantity);
         }
